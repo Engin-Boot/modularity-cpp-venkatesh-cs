@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string>
 using namespace std;
 namespace TelCoColorCoder
 {
@@ -14,31 +15,25 @@ namespace TelCoColorCoder
 		MajorColor majorColor;
 		MinorColor minorColor;
 	public:
-		ColorPair(MajorColor major, MinorColor minor) :
-			majorColor(major), minorColor(minor)
-		{}
+		ColorPair(MajorColor major, MinorColor minor) : majorColor(major), minorColor(minor){}
 		MajorColor getMajor() {
 			return majorColor;
 		}
 		MinorColor getMinor() {
 			return minorColor;
 		}
-		
-        string ToString() 
-        {
+        string ToString() {
 		string colorPairStr = MajorColorNames[majorColor];
 		colorPairStr += " ";
 		colorPairStr += MinorColorNames[minorColor];
 		return colorPairStr;
 		}
 	};
-
 	ColorPair GetColorFromPairNumber(int pairNumber) {
 		int zeroBasedPairNumber = pairNumber - 1;
 		MajorColor majorColor =
 			(MajorColor)(zeroBasedPairNumber / numberOfMinorColors);
-		MinorColor minorColor =
-			(MinorColor)(zeroBasedPairNumber % numberOfMinorColors);
+		MinorColor minorColor = (MinorColor)(zeroBasedPairNumber % numberOfMinorColors);
 		return ColorPair(majorColor, minorColor);
 	}
 	int GetPairNumberFromColor(MajorColor major, MinorColor minor) {
