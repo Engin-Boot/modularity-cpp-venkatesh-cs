@@ -26,7 +26,7 @@ void testPairToNumber( TelCoColorCoder::MajorColor major , TelCoColorCoder::Mino
 void writeManualToFile()
 {
 		WriteToFile("This manual gives the combination of color codes with respective number \nColor code is in the form: (number:color1 color2)");
-		for(int i=0;i<=25;i++)
+		for(int i=1;i<=25;i++)
 		{
 			ColorPair colorpair = GetColorFromPairNumber(i);
 			string colorpair_string = colorpair.ToString();
