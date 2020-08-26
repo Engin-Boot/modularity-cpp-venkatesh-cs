@@ -25,19 +25,19 @@ void testPairToNumber( TelCoColorCoder::MajorColor major , TelCoColorCoder::Mino
 }
 void writeManualToFile()
 {
-		WriteToFile("This manual gives the combination of color codes with respective number \nColor code is in the form: (number:color1 color2)");
-		for(int i=0;i<=25;i++)
+		WriteToFile("This manual gives the combination of color codes with respective number \nColor code is in the form: (number:color1 color2)",1);
+		int NumberOfCombos = 25;
+		int min = 1;
+		for(int i=min;i<=NumberOfCombos;i++)
 		{
 			ColorPair colorpair = GetColorFromPairNumber(i);
 			string colorpair_string = colorpair.ToString();
 			string color = to_string(i);
 			color += ":";
 			color += colorpair_string;
-			color += "\n"	;	
-			WriteToFile(color);
+			WriteToFile(color,0);
 		}
 }
-
 int main() 
 {
 	testNumberToPair(4, TelCoColorCoder::MajorColor::WHITE, TelCoColorCoder::MinorColor::BROWN);

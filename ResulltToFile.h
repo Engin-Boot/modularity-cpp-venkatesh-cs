@@ -4,16 +4,27 @@
 #include <cstdio>
 using namespace std;
 
-void WriteToFile(string combo)
+void WriteToFile(string combo, int WriteHeading)
 {
-
-	fstream fout;
-	//remove("ColorCodingManual.txt");
-	fout.open("ColorCodingManual.txt", fstream::app);
-	if(fout.fail ())
+	if (WriteHeading==1)
 	{
-		cout<<"FOUT fialed";
+		fstream fout;
+		fout.open("ColorCodingManual.txt", fstream::out);
+		fout<<combo;
+		fout<<"\n";
+		fout.close();
 	}
-	fout<<combo;
-	fout.close();
+
+	if(WriteHeading==0)
+	{
+		fstream fout;
+		fout.open("ColorCodingManual.txt", fstream::app);
+		if(fout.fail ())
+		{
+			cout<<"FOUT fialed";
+		}
+		fout<<combo;
+		fout<<"\n";
+		fout.close();
+	}
 }
